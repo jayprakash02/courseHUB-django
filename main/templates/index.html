@@ -147,26 +147,35 @@
     <!--list of courses as pr categories-->
 
     <!--Business-->
+    
+    {% for product in product_list %}
+          
     <div class="container mt-5 scrolling-wrapper">
         <h3>
-            <small class="text-muted">Top Courses in "Business"</small>
+            <small class="text-muted">Top Courses in "{{product.character}}"</small>
         </h3>
         <div class="card-deck">
 
             <div class="card mx-1 shadow-sm wrap">
                 <span class="badge  badge-warning w-50 mt-2" style="position: absolute; z-index: 3">BEST SELLER</span>
 
-                <img class="card-img-top h-50" src="images/bussiness.jpg" alt="Card image cap">
+                <img class="card-img-top h-50" src="{{product.img_url.url}}" alt="Card image cap">
                 <div class="card-body px-2">
-                    <h6>#main title of the course</h6>
-                    <p class="card-text" style="font-size: 11px;">sub tittle and info of course</p>
+                    <h6>{{product.name}}</h6>
+                    <p class="card-text" style="font-size: 11px;">{{product.desc}}</p>
                     <p class="card-text"><small class="text-muted">
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star text-warning"></i>
-                            <i class="fas fa-star-half text-warning"></i>
-                            (raiting) (total)</small>
+                        
+                        {% with ''|center:product.rating as range %}
+                        
+                        {% for _ in range %}
+
+                        <i class="fas fa-star text-warning"></i>
+                            
+                        {% endfor %}                         
+                            
+                        {% endwith %}    
+    
+                            </small>
                         <span class="d-block"></span>
                         <span class="float-right">
                             <small style="text-decoration: line-through;" class="text-muted">
@@ -179,6 +188,7 @@
         </div>
     </div>
 
+    {% endfor %}
     <!--         Featured topics               -->
 
 

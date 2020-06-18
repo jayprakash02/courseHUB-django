@@ -12,4 +12,6 @@ class Allproduct(models.Model):
     character = models.CharField( max_length=50,choices=choice,default='1')
     authur_name = models.CharField( max_length=50)
     desc = models.CharField( max_length=50)
-    img_url = models.ImageField( upload_to='uploads', height_field=None, width_field=None, max_length=None,default='#')
+    img_url = models.ImageField( upload_to='uploads', height_field=None, width_field=None, max_length=None)
+    rating = models.IntegerField()
+    tag = models.CharField(max_length=10)
