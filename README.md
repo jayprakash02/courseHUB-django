@@ -1,3 +1,5 @@
 # courseHUB-django
-django 3.0
-python 3.8
+django 3.0 <br/>
+python 3.8 <br/>
+database - portgresql
+
