@@ -71,79 +71,6 @@
     </nav>
 
 
-
-    <div class="jumbotron big-banner mb-0 jumbotron-fluid" style="height: 500px; padding-top: 150px;">
-
-
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col">
-
-                    <div class="col-md-4 text-light">
-                        <h1 class="display-5">Welcome Here</h1>
-                        <p class="lead">Get our best deal on courses</p>
-                    </div>
-
-                    <div class="col-md-6">
-                        <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control form-control-lg mr-sm-0 col-8
-                                 border-right-0 " style="border-radius: 5px 0px 0px 5px; " type="search"
-                                placeholder="What Do You Want To Learn?" aria-label="Search">
-
-                            <button class="btn btn-light btn-lg my-2 my-sm-0 col-2 border-left-0"
-                                style="border-radius: 0px 5px 5px 0px;" type="submit"><i
-                                    class="fas text-danger fa-search"></i></button>
-                        </form>
-                    </div>
-
-
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-
-
-    <div class="fresh-content text-light py-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="media">
-                        <i class="far fa-play-circle mr-3 display-4"></i>
-                        <div class="media-body">
-                            <h5 class="mt-0">Fresh Content</h5>
-                            Choose from 65,000 courses with new additions published every month
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="media">
-                        <i class="fas fa-ribbon mr-3 display-4"></i>
-                        <div class="media-body">
-                            <h5 class="mt-0">Free Certifications</h5>
-                            Free Certifications of worth 500-5000 /-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="media">
-                        <i class="fas fa-spinner mr-3 display-4"></i>
-                        <div class="media-body">
-                            <h5 class="mt-0">Flexible Learning</h5>
-                            Learn on your terms with lifetime course access
-                        </div>
-                    </div>
-                </div>
-
-
-
-            </div>
-        </div>
-    </div>
-
     <!--list of courses as pr categories-->
 
     
@@ -151,11 +78,11 @@
           
     <div class="container mt-5 scrolling-wrapper">
         <h3>
-            <small class="text-muted">Recent Uploded</small>
+            <small class="text-muted"><!--Heading--></small>
         </h3>
 
         <div class="card-deck">
-            {% for recent in recent_product_list %}
+            {% for recent in product_list %}
             <div class="card mx-1 shadow-sm wrap">
                 
                 {% if recent.tag != 'none' %}                    
@@ -190,46 +117,7 @@
         </div>
     </div>
 
-    <div class="container mt-5 scrolling-wrapper">
-        <h3>
-            <small class="text-muted">Recomended</small>
-        </h3>
-
-        <div class="card-deck">
-            {% for product in recomended_list %}
-            {% if product.tag != 'none' %}                    
-            <div class="card mx-1 shadow-sm wrap">
-                
-                <span class="badge  badge-warning w-50 mt-2" style="position: absolute; z-index: 3">{{product.tag}}</span>
-                <img class="card-img-top h-50" src-="{{ product.img_url.url }}" alt="Card image cap">
-                <div class="card-body px-2">
-                    <h6>{{product.name}}</h6>
-                    <p class="card-text" style="font-size: 11px;">{{product.desc}}</p>
-                    <p class="card-text"><small class="text-muted">
-                        
-                        {% with ''|center:product.rating as range %}
-                        
-                        {% for _ in range %}
-                        
-                        <i class="fas fa-star text-warning"></i>
-                        
-                        {% endfor %}                         
-                        
-                        {% endwith %}    
-                        
-                    </small>
-                    <span class="d-block"></span>
-                    <span class="float-right">
-                        <small style="text-decoration: line-through;" class="text-muted">
-                            XXXXX</small>XXXX </span>
-                            
-                        </p>
-                    </div>
-                </div>
-                {% endif %}
-                {% endfor %}
-            </div>
-    </div>    
+   
     <!--         Featured topics               -->
 
 
