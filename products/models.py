@@ -8,6 +8,7 @@ choice = [
     ('4','business')
 ]
 class Allproduct(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=50)
     character = models.CharField( max_length=50,choices=choice,default='1')
     authur_name = models.CharField( max_length=50)

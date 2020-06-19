@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% for products in product %}
+        
+        {% if products.id == id %}
+         <li>{{products.name}}</li>
+         <li>{{products.tag}}</li>   
+         <li>{{products.desc}}</li>
+         <li>{{products.authur_name}}</li>
+        {% endif %}
+            
+    {% endfor %}
+        
+</body>
+</html>

@@ -163,7 +163,7 @@
                 {% endif %}
                 <img class="card-img-top h-50" src="{{recent.img_url.url}}" alt="Card image cap">
                 <div class="card-body px-2">
-                    <h6>{{recent.name}}</h6>
+                    <a href="{% url 'detail' recent.id %}"> <h6>{{recent.name}}</h6> </a>
                     <p class="card-text" style="font-size: 11px;">{{recent.desc}}</p>
                     <p class="card-text"><small class="text-muted">
                         
@@ -203,7 +203,7 @@
                 <span class="badge  badge-warning w-50 mt-2" style="position: absolute; z-index: 3">{{product.tag}}</span>
                 <img class="card-img-top h-50" src-="{{ product.img_url.url }}" alt="Card image cap">
                 <div class="card-body px-2">
-                    <h6>{{product.name}}</h6>
+                    <a href="{% url 'detail' product.id %}"> <h6>{{product.name}}</h6> </a>
                     <p class="card-text" style="font-size: 11px;">{{product.desc}}</p>
                     <p class="card-text"><small class="text-muted">
                         
@@ -226,6 +226,7 @@
                         </p>
                     </div>
                 </div>
+            
                 {% endif %}
                 {% endfor %}
             </div>
