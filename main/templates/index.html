@@ -146,26 +146,28 @@
 
     <!--list of courses as pr categories-->
 
-    <!--Business-->
     
-    {% for product in product_list %}
+    
           
     <div class="container mt-5 scrolling-wrapper">
         <h3>
-            <small class="text-muted">Top Courses in "{{product.character}}"</small>
+            <small class="text-muted">Recent Uploded</small>
         </h3>
+
         <div class="card-deck">
-
+            {% for recent in recent_product_list %}
             <div class="card mx-1 shadow-sm wrap">
-                <span class="badge  badge-warning w-50 mt-2" style="position: absolute; z-index: 3">BEST SELLER</span>
-
-                <img class="card-img-top h-50" src="{{product.img_url.url}}" alt="Card image cap">
+                
+                {% if recent.tag != 'none' %}                    
+                <span class="badge  badge-warning w-50 mt-2" style="position: absolute; z-index: 3">{{recent.tag}}</span>
+                {% endif %}
+                <img class="card-img-top h-50" src="{{recent.img_url.url}}" alt="Card image cap">
                 <div class="card-body px-2">
-                    <h6>{{product.name}}</h6>
-                    <p class="card-text" style="font-size: 11px;">{{product.desc}}</p>
+                    <h6>{{recent.name}}</h6>
+                    <p class="card-text" style="font-size: 11px;">{{recent.desc}}</p>
                     <p class="card-text"><small class="text-muted">
                         
-                        {% with ''|center:product.rating as range %}
+                        {% with ''|center:recent.rating as range %}
                         
                         {% for _ in range %}
 
@@ -184,11 +186,50 @@
                     </p>
                 </div>
             </div>
-
+            {% endfor %}
         </div>
     </div>
 
-    {% endfor %}
+    <div class="container mt-5 scrolling-wrapper">
+        <h3>
+            <small class="text-muted">Recomended</small>
+        </h3>
+
+        <div class="card-deck">
+            {% for product in recomended_list %}
+            {% if product.tag != 'none' %}                    
+            <div class="card mx-1 shadow-sm wrap">
+                
+                <span class="badge  badge-warning w-50 mt-2" style="position: absolute; z-index: 3">{{product.tag}}</span>
+                <img class="card-img-top h-50" src-="{{ product.img_url.url }}" alt="Card image cap">
+                <div class="card-body px-2">
+                    <h6>{{product.name}}</h6>
+                    <p class="card-text" style="font-size: 11px;">{{product.desc}}</p>
+                    <p class="card-text"><small class="text-muted">
+                        
+                        {% with ''|center:product.rating as range %}
+                        
+                        {% for _ in range %}
+                        
+                        <i class="fas fa-star text-warning"></i>
+                        
+                        {% endfor %}                         
+                        
+                        {% endwith %}    
+                        
+                    </small>
+                    <span class="d-block"></span>
+                    <span class="float-right">
+                        <small style="text-decoration: line-through;" class="text-muted">
+                            XXXXX</small>XXXX </span>
+                            
+                        </p>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+    </div>    
     <!--         Featured topics               -->
 
 
