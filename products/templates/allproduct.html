@@ -82,19 +82,19 @@
         </h3>
 
         <div class="card-deck">
-            {% for recent in product_list %}
+            {% for product in product_list %}
             <div class="card mx-1 shadow-sm wrap">
                 
-                {% if recent.tag != 'none' %}                    
-                <span class="badge  badge-warning w-50 mt-2" style="position: absolute; z-index: 3">{{recent.tag}}</span>
+                {% if product.tag != 'none' %}                    
+                <span class="badge  badge-warning w-50 mt-2" style="position: absolute; z-index: 3">{{product.tag}}</span>
                 {% endif %}
-                <img class="card-img-top h-50" src="{{recent.img_url.url}}" alt="Card image cap">
+                <img class="card-img-top h-50" src="{{product.img_url.url}}" alt="Card image cap">
                 <div class="card-body px-2">
-                    <h6>{{recent.name}}</h6>
-                    <p class="card-text" style="font-size: 11px;">{{recent.desc}}</p>
+                    <a href="{% url 'detail' product.id %}"> <h6>{{product.name}}</h6> </a>
+                    <p class="card-text" style="font-size: 11px;">{{product.desc}}</p>
                     <p class="card-text"><small class="text-muted">
                         
-                        {% with ''|center:recent.rating as range %}
+                        {% with ''|center:product.rating as range %}
                         
                         {% for _ in range %}
 
